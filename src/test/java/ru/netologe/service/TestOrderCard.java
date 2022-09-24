@@ -22,6 +22,7 @@ public class TestOrderCard {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver();
+        driver.get("http://localhost:7777");
     }
 
     @AfterEach
@@ -32,7 +33,7 @@ public class TestOrderCard {
 
     @Test
     public void ShouldTest() {
-        driver.get("http://localhost:7777");
+        
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мария Кислицина");
         driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030248197");
         driver.findElement(By.className("checkbox__box")).click();
