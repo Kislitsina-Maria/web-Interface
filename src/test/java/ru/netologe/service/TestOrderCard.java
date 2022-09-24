@@ -12,7 +12,7 @@ public class TestOrderCard {
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "/Users/mashakislicina/IdeaProjects/webTest/driver/chromedriver");
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
