@@ -169,16 +169,16 @@ public class TestOrderCard {
 
         Assertions.assertEquals(expected, actual);
     }
-//    @Test
-//    public void twoFail() {
-//
-//        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("FFF");
-//        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030");
-//        driver.findElement(By.className("button__content")).click();
-//
-//        String actual = driver.findElement(By.cssSelector("span[data-test-id = \"name\"] span span[class = \"input__sub\"]")).getText().trim();
-//        String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
-//
-//        Assertions.assertEquals(expected, actual);
-//    }
+    @Test
+    public void twoFail() {
+
+        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("FFF");
+        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030");
+        driver.findElement(By.className("button__content")).click();
+
+        String actual = driver.findElement(By.cssSelector("span[data-test-id = \"name\"] span span[class = \"input__sub\"]")).getText().trim();
+        String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
