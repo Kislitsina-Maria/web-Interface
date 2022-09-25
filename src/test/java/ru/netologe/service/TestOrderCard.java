@@ -46,4 +46,139 @@ public class TestOrderCard {
 
 
     }
+
+    @Test
+    public void wrongEnglishName() {
+
+        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Fhdeyug");
+        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030248197");
+        driver.findElement(By.className("checkbox__box")).click();
+        driver.findElement(By.className("button__content")).click();
+
+        String actual = driver.findElement(By.className("input__sub")).getText().trim();
+        String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
+
+        Assertions.assertEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void wrongNameWithNumber() {
+
+        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Елизавета 2");
+        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030248197");
+        driver.findElement(By.className("checkbox__box")).click();
+        driver.findElement(By.className("button__content")).click();
+
+        String actual = driver.findElement(By.className("input__sub")).getText().trim();
+        String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
+
+        Assertions.assertEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void withoutName() {
+
+        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("");
+        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030248197");
+        driver.findElement(By.className("checkbox__box")).click();
+        driver.findElement(By.className("button__content")).click();
+
+        String actual = driver.findElement(By.className("input__sub")).getText().trim();
+        String expected = "Поле обязательно для заполнения";
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void nameWithSpaces() {
+
+        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("  ");
+        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030248197");
+        driver.findElement(By.className("checkbox__box")).click();
+        driver.findElement(By.className("button__content")).click();
+
+        String actual = driver.findElement(By.className("input__sub")).getText().trim();
+        String expected = "Поле обязательно для заполнения";
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void withoutNumber() {
+
+//        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мария Кислицина");
+//        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("");
+//        driver.findElement(By.className("button__content")).click();
+//
+//        String actual = driver.findElement(By.className("checkbox__text")).getText().trim();
+//        String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
+//
+//        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void moreNumber() {
+
+//        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мария Кислицина");
+//        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+7903024819754");
+//        driver.findElement(By.className("button__content")).click();
+//
+//        String actual = driver.findElement(By.className("checkbox__text")).getText().trim();
+//        String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
+//
+//        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void lessNumber() {
+
+//        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мария Кислицина");
+//        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030");
+//        driver.findElement(By.className("button__content")).click();
+//
+//        String actual = driver.findElement(By.className("checkbox__text")).getText().trim();
+//        String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
+//
+//        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void numberWithEight() {
+
+//        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мария Кислицина");
+//        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("89030223123");
+//        driver.findElement(By.className("button__content")).click();
+//
+//        String actual = driver.findElement(By.className("checkbox__text")).getText().trim();
+//        String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
+//
+//        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void withoutClickCheckbox() {
+
+        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мария Кислицина");
+        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030248197");
+        driver.findElement(By.className("button__content")).click();
+
+        String actual = driver.findElement(By.className("checkbox__text")).getText().trim();
+        String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void twoFail() {
+
+//        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мария Кислицина");
+//        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030");
+//        driver.findElement(By.className("button__content")).click();
+//
+//        String actual = driver.findElement(By.className("checkbox__text")).getText().trim();
+//        String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
+//
+//        Assertions.assertEquals(expected, actual);
+    }
 }
