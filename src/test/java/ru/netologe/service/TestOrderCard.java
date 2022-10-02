@@ -32,7 +32,7 @@ public class TestOrderCard {
     }
 
     @Test
-    public void ShouldTest() {
+    public void shouldTest() {
 
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мария Кислицина");
         driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79030248197");
