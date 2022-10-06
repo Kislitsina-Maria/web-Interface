@@ -16,7 +16,7 @@ public class TestOrderCard {
     }
 
     @BeforeEach
-    void SetUp() {
+    void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
@@ -39,7 +39,7 @@ public class TestOrderCard {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button__content")).click();
 
-        String actual = driver.findElement(By.className("Success_successBlock__2L3Cw")).getText().trim();
+        String actual = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
 
         Assertions.assertEquals(expected, actual);
@@ -119,6 +119,7 @@ public class TestOrderCard {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void moreNumber() {
 
@@ -157,6 +158,7 @@ public class TestOrderCard {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void withoutClickCheckbox() {
 
@@ -169,6 +171,7 @@ public class TestOrderCard {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void twoFail() {
 
